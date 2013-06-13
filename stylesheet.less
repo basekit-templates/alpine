@@ -10,11 +10,10 @@ body {
 }
 
 a {
-  font-family:@font-swatch5-font-family;
+  font-family:@font-swatch2-font-family;
   font-size:@font-swatch5-font-size;
   font-weight:@font-swatch5-font-weight;
   color:@color-swatch3;
-  letter-spacing: @font-swatch4-letter-spacing;
   text-decoration: none;
 }
 
@@ -22,27 +21,27 @@ a:hover {
   text-decoration: underline;
 }
 
-h2, h3, h4, h5, p {
+h1, h2, h3, h4, h5, p {
   margin: 0;
   padding: 0 0 10px;
 }
 
 h1 {
   font-family:@font-swatch1-font-family;
-  font-size:@font-swatch1-font-size;
-  font-weight:@font-swatch1-font-weight;
+  font-weight: @font-swatch1-font-weight;
   color:@font-swatch1-color;
+  line-height:@font-swatch1-line-height;
   letter-spacing: @font-swatch1-letter-spacing;
-  margin: 0;
-  padding: 0;
+  font-size: @font-swatch1-font-size;
 }
+
 h2
 {
   font-family:@font-swatch2-font-family;
   font-size: @font-swatch2-font-size;
-  font-weight:@font-swatch2-font-weight;
+  font-weight: @font-swatch2-font-weight;
   line-height:@font-swatch2-line-height;
-  color:@font-swatch2-color;
+  color: @font-swatch2-color;
   letter-spacing: @font-swatch2-letter-spacing;
 }
 
@@ -50,9 +49,9 @@ h3
 {
   font-family:@font-swatch3-font-family;
   font-size:@font-swatch3-font-size;
-  font-weight:@font-swatch3-font-weight;
+  font-weight: @font-swatch3-font-weight;
+  color: @font-swatch3-color;
   line-height:@font-swatch3-line-height;
-  color:@font-swatch3-color;
   letter-spacing: @font-swatch3-letter-spacing;
 }
 
@@ -70,21 +69,22 @@ p
 {
   font-family:@font-swatch5-font-family;
   font-size:@font-swatch5-font-size;
-  font-weight:@font-swatch5-font-weight;
+  font-weight: @font-swatch5-font-weight;
   line-height:@font-swatch5-line-height;
   color:@font-swatch5-color;
   letter-spacing: @font-swatch5-letter-spacing;
 }
 
 blockquote {
-  border-left:6px solid lighten(@color-swatch2,10%);
+  background:@color-swatch2;
+  border-left:6px solid darken(@color-swatch2,10%);
   margin:0;
   padding: 14px 16px;
   quotes:"\201C""\201D""\2018""\2019";
 }
   blockquote:before {
   font-family: georgia;
-  color:darken(@color-swatch2,40%);
+  color:darken(@color-swatch2,20%);
   content:open-quote;
   font-size:4em;
   line-height:.1em;
@@ -101,43 +101,81 @@ blockquote {
   color:@font-swatch5-color;
 }
 
-/* Button CSS */
-/* 
-    Document   : button
-    Created on : 04-Jul-2012, 14:15:32
-    Author     : Dom
-    Description: Button modernwhite
-*/
 
+/* ===============================
+   CUSTOM CSS
+   =============================== */
 
-.widget.button button.btn {
-    width: 200px;
-    margin: 20px 0;
+section.intro {
+  text-align: center;
+  padding: 70px 0;
 }
 
-.btnText {
+span.highlight {
+  color: @color-swatch3;
+  font-size: 34px;
+}
+
+span.dotted {
+  border-bottom: 1px dotted @color-swatch3;
+  padding-bottom: 6px;
+}
+
+.strap {
+  padding: 70px 0 50px;
+}
+
+.strap h4 {
+  font-size: 22px;
+  line-height: 52px;
+}
+
+section.main {
+  padding: 40px 0;
+}
+
+/*.widget.responsivecolumns {
+  margin: 3em 0em;
+}*/
+
+
+/* ===============================
+   BUTTON CSS
+   =============================== */
+
+
+.widget.button {
+    padding: 4px 0;
 }
 
 .widget.button button
 {
-    padding: 1em 1em;
-    border-radius: 4px;
-    border: 0;
+  padding: 12px 40px;
+  margin: 2.2em auto;
+  border: 0;
+  -webkit-border-radius: 10px;
+     -moz-border-radius: 10px;
+          border-radius: 10px;
 
-    font-family: @font-swatch7-font-family;
-    font-size: @font-swatch7-font-size;
-    font-weight:@font-swatch7-font-weight;
-    background-color: @font-swatch7-background-color;
-    color: @font-swatch7-color;
-    text-decoration: none;
-    letter-spacing: 2px;
+  font-family: @font-swatch2-font-family;
+  font-size: 14px;
+  font-weight:@font-swatch7-font-weight;
+  background-color: @color-swatch3;
+  color: @color-swatch1;
+  text-decoration: none;
+  letter-spacing: 1px;
+  text-shadow: 0 1px 0px rgba(0,0,0,0.3);
 }
 
 .widget.button button:hover 
 {
-    background-color: darken(@color-swatch3,5%);
-    cursor: pointer;
+  background-color: darken(@color-swatch3,5%);
+  cursor: pointer;
 }
+
+
+
+/* JUSTIFY */
 
 .widget.button button.btn.justifyleft
 {
@@ -193,7 +231,7 @@ blockquote {
 .widget.content span.expand
 {
     font-family: @font-swatch3-font-family;
-    background-color: @font-swatch7-background-color;
+    background-color: @color-swatch3;
     color: @font-swatch7-color;
     font-size: @font-swatch5-font-size;
     padding: 4px 8px;
@@ -323,8 +361,8 @@ blockquote {
 }
 
 hr.line {
-   background-color: @color-swatch2;
-   height: 2px;
+   background-color: darken(@color-swatch2,3%);
+   height: 1px;
    width: 100%;
    border: none;
 }
@@ -342,30 +380,34 @@ hr.line.align-right {
 }
 
 
-/* Click To Call CSS */
+/* ===============================
+   CLICK TO CALL
+   =============================== */
 
 .widget.clicktocall {
-    background-color: @font-swatch7-background-color;
-    width:250px;
-    padding: 16px 10px;
-    margin: 20px;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    border-radius: 4px;
-}
-
-.widget.clicktocall:hover {
-    background-color: darken(@color-swatch3,5%);
-    cursor: pointer;
+    padding: 10px 0;
 }
 
 .widget.clicktocall a {
-    font-family:@font-swatch7-font-family;
-    font-size: @font-swatch7-font-size;
-    color: @font-swatch7-color;
+  margin: 0;
+  background-image: image('/images/ic-desktop-call.png');
+  background-position: left center;
+  background-repeat: no-repeat;
+  padding-left: 28px;
+  font-family:@font-swatch4-font-family;
+  font-size:@font-swatch5-font-size;
+  font-weight: @font-swatch4-font-weight;
+  line-height: @font-swatch4-line-height;
+  color:@font-swatch4-color;
+}
+
+.widget.clicktocall a:hover {
+    background-image: image('/images/ic-desktop-call-hov.png');
+    background-position: left center;
+    background-repeat: no-repeat;
+    padding-left: 28px;
+    cursor: pointer;
     text-decoration: none;
-    text-align: center;
-    display: block;
 }
 
 .widget.clicktocall a.justifyleft
@@ -395,63 +437,139 @@ hr.line.align-right {
 .widget.clicktocall a.bold {
     font-weight: bold;
 }
-footer {
-  background-color: darken(@color-swatch4,10%);
-  min-height: 150px;
-  margin-top: 4em;
-  padding: 2em 0;
-  color: @color-swatch1;
+
+/* ===============================
+   REDIRECT WIDGET
+   =============================== */
+
+.widget.redirecttodesktop {
+    padding: 8px 0;
 }
-footer section article {
-    float: left;
-    width: 20%;
-    margin-right: 5%;
-    margin-bottom: 5%;
+
+.widget.redirecttodesktop a {
+    padding-right: 30px;
+    padding-top: 2px;
+    background-image: image('/images/desktop.png');
+    background-repeat: no-repeat;
+    background-position: right center;
+    font-size: 12px;
+    text-shadow: 0 1px 0 rgba(255,255,255,.5);
+    text-decoration: none;
+    cursor: pointer;
+    color: @font-swatch5-color;
+    font-family: @font-swatch5-font-family;
+
 }
-footer p {
-  padding: 6px 0;
+
+.widget.redirecttodesktop a:hover, .desktop a:active {
+    background-image: image('/images/desktop.png');
+    background-repeat: no-repeat;
+    background-position: right center;
+    cursor: pointer;
+    text-decoration: underline;
 }
-footer h3 {
-  color: @color-swatch1;
-  font-weight: 200;
-}
+
+/* HEADER */
 
 header {
   padding: 20px 0;
+  background-color: lighten(@color-swatch7,3%);
+  border-bottom: 1px solid @color-swatch2;
 }
+
+header h1 {
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+  letter-spacing: 6px;
+}
+
 .widget.companyheader {
   float: left;
   overflow-x: auto;
   overflow-y: hidden;
 }
+
 .widget.companyheader .logo {
   display: block;
   float: left;
-  margin-top: 10px;
+  margin-right: 6px;
+  margin-top: 8px;
 }
+
 .widget.companyheader:before,
 .widget.companyheader:after {
   content: " ";
   display: table;
 }
+
 .widget.companyheader:after {
   clear: both;
 }
+
 .widget.companyheader {
   *zoom: 1;
 }
+
 .widget.companyheader .logo img {
   max-width: 100%;
   height: auto;
 }
+
 .widget.companyheader .logo-bottom {
   display: none;
 }
+
 .widget.companyheader .company-name {
   display: block;
   float: left;
+  margin-top: 4px;
 }
 
+/* FOOTER */
+
+footer {
+  padding: 4em 0;
+  background-color: lighten(@color-swatch4,5%);
+  min-height: 150px;
+  color: @color-swatch1;
+}
+
+footer h3 {
+  color: @color-swatch1;
+  font-size: 24px;
+  padding-bottom: 20px;
+}
+
+footer p {
+  font-family: @font-swatch3-font-family;
+  color: lighten(@color-swatch5,10%);
+  line-height: 28px;
+  padding-bottom: 0;
+}
+
+footer span {
+  color: @color-swatch1;
+}
+
+footer section.footer2 {
+  border-top: 1px solid darken(@color-swatch5,10%);
+  padding: 2em 0;
+}
+
+footer section.footer2 .widget.responsivecolumns {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+footer section.footer2 .widget.responsivecolumns p {
+  font-size: 12px;
+  padding: 8px 0 0; 
+}
+
+footer section.footer2 .widget.responsivecolumns .columns-two-right {
+  text-align: right;
+}
 
 /* ===============================
    STANDARD NAVIGATION
@@ -488,18 +606,18 @@ header {
 
 .widget.navigation ul li a {
   display: block;
-  font-family: @font-swatch6-font-family;
-  font-size: @font-swatch6-font-size;
+  font-family:@font-swatch6-font-family;
+  font-size:@font-swatch6-font-size;
   font-weight: @font-swatch6-font-weight;
-  letter-spacing: @font-swatch6-letter-spacing;
   color: @font-swatch6-color;
+  line-height:@font-swatch6-line-height;
+  letter-spacing: @font-swatch6-letter-spacing;
 }
 
 .widget.navigation ul li a:hover {
   text-decoration: none;
   color: @color-swatch3;
 }
-
 
 /* EXTENDED NAV */
 
@@ -510,8 +628,8 @@ header {
 
 .widget.extendednavigation ul {
   float: left;
-  padding: 10px 0;
-  margin: 0;
+  padding: 0;
+  margin: 7px 0 0;
 }
 
 .widget.extendednavigation ul.align-center li
@@ -532,28 +650,30 @@ header {
 .widget.extendednavigation ul li {
   float: left;
   display: block;
-  padding: 8px 1.8em;
-  font-family: @font-swatch6-font-family;
-  font-size: @font-swatch5-font-size;
-  color: @color-swatch4;
-  text-decoration: none;
 }
 
 .widget.extendednavigation ul li:hover {
   color: @color-swatch3;
 }
 
-.widget.extendednavigation ul li a {
+.widget.extendednavigation ul li a, .widget.extendednavigation ul li.folder .text {
   display: block;
-  font-family: @font-swatch6-font-family;
-  color: darken(@color-swatch4,20%);
+  padding: 6px 14px;
+  font-family:@font-swatch6-font-family;
+  font-size:@font-swatch6-font-size;
+  font-weight: @font-swatch6-font-weight;
+  color: @font-swatch6-color;
+  line-height:@font-swatch6-line-height;
+  letter-spacing: @font-swatch6-letter-spacing;
   text-transform: uppercase;
 }
+
 .widget.extendednavigation ul li a:hover {
   text-decoration: none;
 }
 
 .widget.extendednavigation ul li.folder {
+  padding-right: 15px;
   background-image: image('/images/arrow-down.png');
   background-position: right center;
   background-repeat: no-repeat;
@@ -568,88 +688,120 @@ header {
 .widget.extendednavigation li > ul {
   display: none;
 }
+
 .widget.extendednavigation li:hover > ul {
   display: block;
-  width: 200px;
+  width: 186px;
   position: absolute;
-  margin-left: -1.8em;
+  background-color: lighten(@color-swatch1,3%);
+  border: 1px solid lighten(@color-swatch2,50%);
   z-index: 500;
-  background-color: lighten(@color-swatch1,40%);
-  padding-top: 32px;
-  padding-bottom: 0px;
-  border-top: none;
+  padding: 10px 0;
+  margin-left: 1.1em;
+  margin-top: 22px;
 }
+
 .widget.extendednavigation li:hover > ul > li {
   display: block;
-  width: 150px;
+  width: 100%;
   text-align: left;
-    border-bottom: 1px solid lighten(@color-swatch3,20%);
 }
 
 .widget.extendednavigation li:hover > ul > li > a {
   display: block;
   background-image: none;
-  color: lighten(@color-swatch5,10%);
+  color: @color-swatch5;
+  padding: 14px;
+  margin-left: 0;
 }
+
+.widget.extendednavigation li:hover > ul > li > a .text {
+  margin-left: 0;
+}
+
 .widget.extendednavigation li:hover > ul > li > a:hover {
   color: @color-swatch3;
 }
 
-
+/* ===============================
+   FEATURE
+   =============================== */
 
 .widget.feature {
-  margin-bottom: 2em;
+  /*height: 500px;*/
+  height: auto;
+}
+
+.widget.feature .bgimage {
+  height: 500px;
 }
 
 .widget.feature .content {
-  padding: 5em 0;
   margin: 0 auto;
-  width: 90%;
-  max-width: 960px;
+  padding: 7em 0;
+
+  display: absolute;
+  bottom: 0;
 }
 
-.widget.feature {
-    width: 100%;
+.widget.feature .content .spare {
+  max-width: 960px;
+  display: block;
+  margin: 0 auto;
 }
+
+/* FEATURE TITLE */
 
 .widget.feature h2 {
   font-family:@font-swatch8-font-family;
   font-size: @font-swatch8-font-size;
-  font-weight:@font-swatch8-font-weight;
+  font-weight: @font-swatch8-font-weight;
   line-height:@font-swatch8-line-height;
-  color:@font-swatch8-color;
+  color: @font-swatch8-color;
   letter-spacing: @font-swatch8-letter-spacing;
+  text-align: center;
+
 }
+
+/* FEATURE STRAPLINE */
+
 .widget.feature h3 {
   font-family:@font-swatch9-font-family;
-  font-size:@font-swatch9-font-size;
-  font-weight:@font-swatch9-font-weight;
+  font-size: @font-swatch9-font-size;
+  font-weight: @font-swatch9-font-weight;
   line-height:@font-swatch9-line-height;
-  color:@font-swatch9-color;
+  color: @font-swatch9-color;
   letter-spacing: @font-swatch9-letter-spacing;
+  text-align: center;
+  padding-bottom: 0;
 }
+
+/* FEATURE BUTTON */
 
 .widget.feature button
 {
-  padding: 1.2em 2em;
-  margin: 2em auto 1em;
-  border-radius: 4px;
-  box-shadow: 0 0 0 0px rgba(0,0,0,0.2);
-  border: none;
+  display: block;
+  padding: 14px 24px;
+  margin: 2em auto;
+  border: 0;
+  -webkit-border-radius: 10px;
+     -moz-border-radius: 10px;
+          border-radius: 10px;
 
-  font-family: @font-swatch7-font-family;
-  font-size: @font-swatch7-font-size;
+  font-family: @font-swatch2-font-family;
+  font-size: 14px;
   font-weight:@font-swatch7-font-weight;
-  background-color: darken(@font-swatch7-background-color,5%);
-  color: @font-swatch7-color;
+  background-color: @color-swatch3;
+  color: @color-swatch1;
   text-decoration: none;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
+  text-shadow: 0 1px 0px rgba(0,0,0,0.3);
 }
 
 .widget.feature button:hover 
 {
-    background-color: darken(@color-swatch3,10%);
-    cursor: pointer;
+  background-color: darken(@color-swatch3,5%);
+  cursor: pointer;
 }
 
 .widget.feature button.btn.justifyleft
@@ -744,17 +896,17 @@ header {
 }
 
 
-/* Form CSS */
-/* 
-    Document   : Form
-    Created on : 17-Dec-2012, 14:15:32
-    Author     : Dom
-    Description: Form modernwhite
-*/
+/* ===============================
+   CONTACT FORM
+   =============================== */
 
 .widget.contactform form {
+    display: block;
     padding: 20px;
     margin-bottom: 20px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
 }
 
 .widget.contactform fieldset {
@@ -770,21 +922,17 @@ header {
     font-weight:@font-swatch4-font-weight;
     line-height:@font-swatch4-line-height;
     color:@font-swatch4-color;
-    letter-spacing: @font-swatch5-letter-spacing;
+    letter-spacing: @font-swatch4-letter-spacing;
 }
 
 .widget.contactform fieldset input {
     height: 40px;
     width: 100%;
-    border: 1px solid lighten(@color-swatch2,70%);
+    border: 1px solid lighten(@color-swatch2,50%);
+    border-radius: 10px;
     font-family: @font-swatch5-font-family;
     font-size: @font-swatch5-font-size;
     color: @font-swatch5-color;
-    background-image: image('/images/form-bg.png');
-    background-repeat: repeat;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    border-radius: 4px;
     text-indent: 8px;
     margin-top: 6px;
     margin-bottom: 30px;
@@ -793,15 +941,11 @@ header {
 .widget.contactform fieldset textarea {
     height: 100px;
     width: 100%;
-    border: 1px solid lighten(@color-swatch2,70%);
+    border: 1px solid lighten(@color-swatch2,50%);
+    border-radius: 10px;
     font-family: @font-swatch5-font-family;
     font-size: @font-swatch5-font-size;
     color: @font-swatch5-color;
-    background-image: image('/images/form-bg.png');
-    background-repeat: repeat;
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
-    border-radius: 2px;
     text-indent: 8px;
     padding-top: 14px;
     margin-top: 6px;
@@ -810,21 +954,27 @@ header {
 }
 
 .widget.contactform fieldset button.btn {
-    width: 150px;
-    font-family:@font-swatch7-font-family;
-    font-size: @font-swatch7-font-size;
-    color: @font-swatch7-color;
-    background-color: @font-swatch7-background-color;
-    padding: 8px 10px;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    border-radius: 4px;
-    border: none;
-}
+    padding: 4px 8px;
+    margin: 0;
+    border: 0;
+    -webkit-border-radius: 10px;
+       -moz-border-radius: 10px;
+            border-radius: 10px;
 
+
+    font-family: @font-swatch2-font-family;
+    font-size: 12px;
+    font-weight:@font-swatch7-font-weight;
+    background-color: @color-swatch3;
+    color: @color-swatch1;
+    text-decoration: none;
+    letter-spacing: 1px;
+    text-shadow: 0 1px 0px rgba(0,0,0,0.3);
+}
+  
 .widget.contactform fieldset button.btn:hover {
-    cursor: pointer;
-    background-color: darken(@color-swatch3,5%);
+  background-color: darken(@color-swatch3,5%);
+  cursor: pointer;
 }
 
 .widget.contactform fieldset button.btn.justifyleft
@@ -855,10 +1005,13 @@ header {
     font-weight: bold;
 }
 
-/* TWEET THIS */
+
+/* ===============================
+   TWEET THIS
+   =============================== */
 
 .widget.tweet {
-   padding: 20px 20px; 
+   padding: 14px 0; 
 }
 
 .widget.tweet a {
@@ -871,7 +1024,7 @@ header {
     background-position: 15px;
     -moz-border-radius: 30px;
     -webkit-border-radius: 30px;
-    border-radius: 3px;
+    border-radius: 10px;
     font-family: @font-swatch7-font-family;
     font-size: 12px;
     font-weight: bold;
@@ -889,9 +1042,6 @@ header {
     cursor: pointer;
 }
 
-.widget.tweet a:active {
-    box-shadow: inset 0 2px 3px rgba(0,0,0,0.1);
-}
 
 
 /* SOCIAL BAR */
@@ -916,29 +1066,28 @@ header {
     background-repeat: no-repeat;
 }
 .widget.socialicons span.bk-socialicons-twitter a {
-    background-image: image('/images/socialicons-twitter.png')
+    background-image: image('/hatch/images/socialicons-twitter.png')
 }
 
 .widget.socialicons span.bk-socialicons-linkedin a {
-    background-image: image('/images/socialicons-linkedin.png');
+    background-image: image('/hatch/images/socialicons-linkedin.png');
 }
 
 .widget.socialicons span.bk-socialicons-facebook a {
-    background-image: image('/images/socialicons-facebook.png');
+    background-image: image('/hatch/images/socialicons-facebook.png');
 }
 
 .widget.socialicons span.bk-socialicons-rss a {
-    background-image: image('/images/socialicons-rssfeed.png');
+    background-image: image('/hatch/images/socialicons-rssfeed.png');
 }
 
 .widget.socialicons span.bk-socialicons-googleplus a {
-    background-image: image('/images/socialicons-googleplus.png');
+    background-image: image('/hatch/images/socialicons-googleplus.png');
 }
 
 .widget.socialicons span.bk-socialicons-youtube a {
-    background-image: image('/images/socialicons-youtube.png');
+    background-image: image('/hatch/images/socialicons-youtube.png');
 }
-
 
 
 
@@ -947,33 +1096,133 @@ header {
    =============================== */
 
 @media only screen and (max-width: 768px) {
+
   header {
-    padding: 20px 0 10px;
+    padding: 30px 0 22px;
+    border-bottom: 0;
   }
-  .widget.feature .content {
-    padding: 3em 0;
-  }
-  .widget.extendednavigation {
-    float: left;
+
+  .widget.companyheader {
     width: 100%;
-    padding-top: 1em;
+    display: block;
+    margin: 0 auto;
   }
-  .widget.extendednavigation ul li:first-child {
-    padding-left: 0;
+
+  .widget.companyheader .company-name {
+    text-align: center;
   }
-    .widget.extendednavigation ul li:hover ul {
-    margin-left: -1em;
-    width: 180px;
+
+  /* NAV */
+.widget.extendednavigation {
+    padding: 0;
+    margin-top: 26px;
   }
-    .widget.extendednavigation ul li:hover ul li {
-    padding: 1em;
+  .widget .extendednavigation {
+    display: table;
+    *display: block;
+    *float: left;
+    width: 100%;
   }
+
+  .widget .extendednavigation ul {
+    display: table-row;
+    width: 100%;
+    float: none!important;
+  }
+
+  .widget .extendednavigation li {
+    display: table-cell !important;
+    float: none!important;
+    padding: .2em 0em;
+    text-align: center;
+  }
+
+  .widget.extendednavigation ul li a {
+    margin-left: 0;
+  }
+
+  .widget .extendednavigation li:last-child
+   {
+    border-right: 0;
+   }
+
+   .widget .extendednavigation li:first-child
+   {
+    border-left: 0;
+   }
+
+  .widget.extendednavigation li:hover > ul {
+    width: auto;
+    margin-left: -1px;
+    padding: 0;
+    margin-top: 8px;
+  }
+
+  .widget.extendednavigation li:hover > ul li {
+    display: block!important;
+    border: 0!important;
+    padding: .2em 0;
+  }
+
+  .widget.extendednavigation li:hover > ul li:first-child {
+    padding-top: 15px;
+  }
+
+  /* OTHER */
+
+  section.intro, section.main {
+    padding: 50px 0;
+  }
+
+  section.intro {
+    display: none;
+  }
+
+  /* FEATURE */
+  .widget.feature {
+    /*height: 350px;*/
+    height: auto;
+  }
+
+
+  .widget.feature .bgimage {
+    height: 350px;
+  }
+
+  .widget.feature .content {
+    padding: 3.6em 0;
+    position: absolute;
+    bottom: 0;
+  }
+
+  .widget.feature .content .spare {
+    max-width: 690px;
+  }
+
+  .widget.feature button {
+    /*display: none;*/
+    /*margin: 1em auto;*/
+  }
+
   .widget.feature h2 {
-    font-size: 2.5em;
+    font-size: 32px;
+    line-height: 40px;
   }
+
   .widget.feature h3 {
-    font-size: 1.1em;
+    font-size: 18px;
+    line-height: 30px;
   }
+
+  .strap {
+    padding: 50px 0 20px;
+  }
+
+  .strap h4 {
+    font-size: 20px;
+  }
+
+
 }
 
 /* ===============================
@@ -981,50 +1230,76 @@ header {
    =============================== */
 
 @media only screen and (max-width: 480px) {
-  header {
-    padding: 20px 0 10px;
-  }
-  .widget.companyheader {
+
+  /* NAV */
+
+  .widget.extendednavigation {
     width: 100%;
   }
-  .widget.feature .content {
-    padding: 2em 0 3em 0;
+  .widget .extendednavigation {
+    display: block;
+
   }
-  .widget.extendednavigation ul {
+
+  .widget .extendednavigation ul {
+    display: block;
     width: 100%;
+    float: left;
+    margin: 0;
   }
-  .widget.extendednavigation ul li {
+
+  .widget .extendednavigation li {
+    display: block!important;
     width: 100%;
-    padding: 1.2em 0 !important;
-    text-align: center;
+    border-left: 0;
     background-color: lighten(@color-swatch2,80%);
-    margin-bottom: .7em;
+    padding: 0;
   }
-  .widget.extendednavigation ul li a {
-    padding: 0 20px;
+
+  .widget .extendednavigation li:hover {
+    background-color: lighten(@color-swatch2,70%);
   }
+
+  .widget.extendednavigation ul li.folder {
+    padding: 0;
+  }
+
+  .widget .extendednavigation ul li a {
+    border-left: 0;
+    border-right: 0;
+    padding: 1.4em 1em;
+  }
+
+  .widget.extendednavigation ul li.folder .text {
+    padding: 1.4em 1em;
+    margin-top: 20px;
+  }
+
+  .widget .extendednavigation ul li:last-child {
+    border: 0;
+  }
+
   .widget.extendednavigation li:hover > ul {
-    border-top: 1px solid @color-swatch1;
-    width: 100% !important;
-    padding-top: 0;
-    padding-bottom: 0;
-    margin-left: 0em !important;
-    margin-top: 17px;
-  }
-  .widget.extendednavigation li:hover > ul li {
     width: 100%;
+    margin-left: 0px;
+    margin-top: 0px;
+  }
+
+  .widget.extendednavigation li:hover > ul li {
+    display: block!important;
+    margin-bottom: 0;
     text-align: center;
-    margin-bottom: 1px;
+    padding: 0;
   }
 
-  .widget.extendednavigation li:hover > ul li a {
-    color: lighten(@color-swatch2,30%);
+  .widget.extendednavigation li:hover > ul > li > a {
+    padding: 0;
   }
 
-  .widget.extendednavigation li:hover > ul li:last-child {
-    border-bottom: 0;
+  .widget.extendednavigation ul li:hover > ul li:first-child {
+    padding-top: 0;
   }
-
+  
   /* UL ALIGN RIGHT */
   .widget.extendednavigation ul.align-right li:hover ul li {
     text-align: right;
@@ -1034,29 +1309,114 @@ header {
     background-position: 12px center;
   }
 
+  /* UL ALIGN CENTER */
+  .widget.extendednavigation ul.align-left li:hover ul li {
+    text-align: center;
+  }
+
   /* UL ALIGN LEFT */
   .widget.extendednavigation ul.align-left li:hover ul li {
     text-align: left;
   }
 
+  /* FEATURE */
+
+  .widget.feature {
+    /*height: 210px;*/
+    height: auto;
+  }
+
+  .widget.feature .bgimage {
+    height: 210px;
+  }
+
+    .widget.feature .content .spare {
+    max-width: 300px;
+  }
+
   .widget.feature h2 {
-    font-size: 2.2em;
+    font-size: 20px;
+    padding-bottom: 0;
   }
-  .widget.feature h3 {
-    font-size: 1.03em;
-    line-height: 1.5em;
+  .widget.feature h3
+   {
+    /*display: none;*/
   }
-  section.feature header.feature-text {
-    padding: 3em 0;
+
+  .widget.feature button {
+    display: none;
   }
+
+  .strap {
+    padding: 60px 0 30px;
+  }
+
+  .strap h4 {
+    font-size: 20px;
+  }
+
+  /* CLICK TO CALL */
+
+  .widget.clicktocall {
+    padding: 20px 0;
+  }
+
+  .widget.clicktocall a {
+    background-image: image('/images/ic-desktop-call-mob.png');
+    background-color: @color-swatch3;
+    background-position: 10px;
+    padding: 10px 10px 10px 38px;
+    margin: 2.2em auto;
+    border: 0;
+    -webkit-border-radius: 10px;
+       -moz-border-radius: 10px;
+            border-radius: 10px;
+
+
+    font-family: @font-swatch2-font-family;
+    font-size: 12px;
+    font-weight:@font-swatch7-font-weight;
+    background-color: @color-swatch3;
+    color: @color-swatch1;
+    text-decoration: none;
+    letter-spacing: 1px;
+    text-shadow: 0 1px 0px rgba(0,0,0,0.3);
+  }
+
+  .widget.clicktocall a:hover {
+    background-image: image('/images/ic-desktop-call-mob.png');
+    background-color: darken(@color-swatch3,2%);
+    background-position: 10px;
+    color: @color-swatch1;
+    padding: 10px 10px 10px 38px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  /* GALLERY */
+
   .widget.gallery p
   {
     padding: 10px;
   }
+
   .widget.gallery ul.gallery-widget li
   {
     width: 96%;
   }
+
+  .footer2 {
+    text-align: center;
+  }
+
+  .footer2 .columns-two-left {
+    margin: 0!important;
+  }
+
+  .footer2 p {
+    text-align: left!important;
+  }
+
 }
 
 @media only screen and (min-width: 1140px) {
@@ -1077,3 +1437,5 @@ header {
 .clearfix {
   *zoom: 1;
 }
+
+
