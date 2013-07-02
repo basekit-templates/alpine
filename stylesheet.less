@@ -1,3 +1,8 @@
+/* SCALING FUNCTION */
+.scale-value ( @property, @value: 13, @scale : 1) {
+  @property:  (@value * @scale)px;
+}
+
 body {
   background-color: lighten(@color-swatch1,3%);
   margin: 0;
@@ -469,7 +474,10 @@ hr.line.align-right {
     text-decoration: underline;
 }
 
-/* HEADER */
+
+/* ===============================
+   HEADER  
+   =============================== */
 
 header {
   padding: 20px 0;
@@ -477,11 +485,10 @@ header {
   border-bottom: 1px solid @color-swatch2;
 }
 
-header h1 {
+.widget.companyheader .company-name h1 {
+  font-size:(@font-swatch1-font-size * 0.6); /* 21.6px  */
   margin: 0;
   padding: 0;
-  font-size: 18px;
-  letter-spacing: 6px;
 }
 
 .widget.companyheader {
@@ -523,7 +530,7 @@ header h1 {
 .widget.companyheader .company-name {
   display: block;
   float: left;
-  margin-top: 4px;
+  margin-top: 9px;
 }
 
 /* FOOTER */
@@ -535,14 +542,12 @@ footer {
   color: @color-swatch1;
 }
 
-footer h3 {
+footer h1, footer h2, footer h3, footer h4 {
   color: @color-swatch1;
-  font-size: 24px;
   padding-bottom: 20px;
 }
 
 footer p {
-  font-family: @font-swatch3-font-family;
   color: lighten(@color-swatch5,10%);
   line-height: 28px;
   padding-bottom: 0;
@@ -550,25 +555,6 @@ footer p {
 
 footer span {
   color: @color-swatch1;
-}
-
-footer section.footer2 {
-  border-top: 1px solid darken(@color-swatch5,10%);
-  padding: 2em 0;
-}
-
-footer section.footer2 .widget.responsivecolumns {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-footer section.footer2 .widget.responsivecolumns p {
-  font-size: 12px;
-  padding: 8px 0 0; 
-}
-
-footer section.footer2 .widget.responsivecolumns .columns-two-right {
-  text-align: right;
 }
 
 /* ===============================
@@ -619,7 +605,9 @@ footer section.footer2 .widget.responsivecolumns .columns-two-right {
   color: @color-swatch3;
 }
 
-/* EXTENDED NAV */
+/* ===============================
+   EXTENDED NAVIGATION
+   =============================== */
 
 .widget.extendednavigation {
   float: right;
@@ -629,7 +617,7 @@ footer section.footer2 .widget.responsivecolumns .columns-two-right {
 .widget.extendednavigation ul {
   float: left;
   padding: 0;
-  margin: 7px 0 0;
+  margin: 4px 0 0;
 }
 
 .widget.extendednavigation ul.align-center li
@@ -659,30 +647,23 @@ footer section.footer2 .widget.responsivecolumns .columns-two-right {
 .widget.extendednavigation ul li a, .widget.extendednavigation ul li.folder .text {
   display: block;
   padding: 6px 14px;
+  margin-left: 30px;
   font-family:@font-swatch6-font-family;
   font-size:@font-swatch6-font-size;
   font-weight: @font-swatch6-font-weight;
   color: @font-swatch6-color;
   line-height:@font-swatch6-line-height;
   letter-spacing: @font-swatch6-letter-spacing;
-  text-transform: uppercase;
 }
 
 .widget.extendednavigation ul li a:hover {
   text-decoration: none;
 }
 
-.widget.extendednavigation ul li.folder {
-  padding-right: 15px;
-  background-image: image('/images/arrow-down.png');
-  background-position: right center;
-  background-repeat: no-repeat;
-  height: 100%;
-  cursor: pointer;
-}
 
 .widget.extendednavigation li a:hover {
   color: @color-swatch3;
+    background-color: lighten(@color-swatch1,20%);
 }
 
 .widget.extendednavigation li > ul {
@@ -693,12 +674,12 @@ footer section.footer2 .widget.responsivecolumns .columns-two-right {
   display: block;
   width: 186px;
   position: absolute;
-  background-color: lighten(@color-swatch1,3%);
-  border: 1px solid lighten(@color-swatch2,50%);
+  background-color: lighten(@color-swatch1,20%);
+  border: 1px solid @color-swatch2;
   z-index: 500;
-  padding: 10px 0;
+  padding: 0;
   margin-left: 1.1em;
-  margin-top: 22px;
+  margin-top: 0;
 }
 
 .widget.extendednavigation li:hover > ul > li {
@@ -713,6 +694,7 @@ footer section.footer2 .widget.responsivecolumns .columns-two-right {
   color: @color-swatch5;
   padding: 14px;
   margin-left: 0;
+
 }
 
 .widget.extendednavigation li:hover > ul > li > a .text {
@@ -721,87 +703,73 @@ footer section.footer2 .widget.responsivecolumns .columns-two-right {
 
 .widget.extendednavigation li:hover > ul > li > a:hover {
   color: @color-swatch3;
+  background-color: lighten(@color-swatch2,70%);
 }
 
 /* ===============================
    FEATURE
    =============================== */
 
-.widget.feature {
-  /*height: 500px;*/
-  height: auto;
-}
+  .widget.feature .feature-bgimg {
+    height: 400px;
+   }
 
-.widget.feature .bgimage {
-  height: 500px;
-}
+  .widget.feature .content {
+    height: 400px;
+    text-align: center;
+  }
 
-.widget.feature .content {
-  margin: 0 auto;
-  padding: 7em 0;
-
-  display: absolute;
-  bottom: 0;
-}
-
-.widget.feature .content .spare {
-  max-width: 960px;
-  display: block;
-  margin: 0 auto;
-}
-
-/* FEATURE TITLE */
 
 .widget.feature h2 {
   font-family:@font-swatch8-font-family;
-  font-size: @font-swatch8-font-size;
+  font-size:@font-swatch8-font-size;
   font-weight: @font-swatch8-font-weight;
   line-height:@font-swatch8-line-height;
   color: @font-swatch8-color;
   letter-spacing: @font-swatch8-letter-spacing;
-  text-align: center;
-
 }
 
 /* FEATURE STRAPLINE */
 
 .widget.feature h3 {
   font-family:@font-swatch9-font-family;
-  font-size: @font-swatch9-font-size;
+  font-size:(@font-swatch9-font-size * 0.8); /* 35px  */
   font-weight: @font-swatch9-font-weight;
   line-height:@font-swatch9-line-height;
   color: @font-swatch9-color;
-  letter-spacing: @font-swatch9-letter-spacing;
-  text-align: center;
-  padding-bottom: 0;
+  letter-spacing: 1px;
+  /*letter-spacing: @font-swatch9-letter-spacing;*/
 }
 
 /* FEATURE BUTTON */
 
 .widget.feature button
 {
-  display: block;
-  padding: 14px 24px;
-  margin: 2em auto;
+  margin: 1em 0;
+  padding: 12px 18px;
   border: 0;
-  -webkit-border-radius: 10px;
-     -moz-border-radius: 10px;
-          border-radius: 10px;
+  -webkit-border-radius: 2px;
+     -moz-border-radius: 2px;
+          border-radius: 2px;
+  box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2);
 
   font-family: @font-swatch2-font-family;
-  font-size: 14px;
+  font-size: 1em;
   font-weight:@font-swatch7-font-weight;
   background-color: @color-swatch3;
   color: @color-swatch1;
   text-decoration: none;
-  letter-spacing: 1px;
   text-shadow: 0 1px 0px rgba(0,0,0,0.3);
 }
 
 .widget.feature button:hover 
 {
-  background-color: darken(@color-swatch3,5%);
+  background-color: darken(@color-swatch2,5%);
   cursor: pointer;
+  -webkit-transition: background-color 0.15s ease-in-out;
+  -moz-transition: background-color 0.15s ease-in-out;
+  -o-transition: background-color 0.15s ease-in-out;
+  transition: background-color 0.15s ease-in-out;
 }
 
 .widget.feature button.btn.justifyleft
@@ -840,6 +808,31 @@ footer section.footer2 .widget.responsivecolumns .columns-two-right {
     margin-right: 5px;
 }
 
+/* ===============================
+   FEATURE LAYOUTS
+   =============================== */
+
+/* LEFT ALIGN */
+
+.widget.feature.align-left .content {
+  width: 100%;
+  text-align: left;
+}
+
+/* CENTER ALIGN */
+
+.widget.feature.align-center .content {
+  width: 100%;
+  text-align: center;
+}
+
+/* RIGHT ALIGN */
+
+.widget.feature.align-right .content {
+  width: 100%;
+  text-align: right;
+}
+
 /* Twitter CSS */
 /* 
     Document   : twitter
@@ -863,7 +856,7 @@ footer section.footer2 .widget.responsivecolumns .columns-two-right {
 }
 
 .widget.twitter ul {
-    padding: 20px;
+    padding: 20px 0;
     margin: 0;
 }
 
@@ -902,7 +895,7 @@ footer section.footer2 .widget.responsivecolumns .columns-two-right {
 
 .widget.contactform form {
     display: block;
-    padding: 20px;
+    padding: 0;
     margin-bottom: 20px;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
@@ -1024,7 +1017,7 @@ footer section.footer2 .widget.responsivecolumns .columns-two-right {
     background-position: 15px;
     -moz-border-radius: 30px;
     -webkit-border-radius: 30px;
-    border-radius: 10px;
+    border-radius: 30px;
     font-family: @font-swatch7-font-family;
     font-size: 12px;
     font-weight: bold;
@@ -1048,16 +1041,19 @@ footer section.footer2 .widget.responsivecolumns .columns-two-right {
 
 .widget.socialicons {
     padding: 10px 0;
-    text-align: center;
     font-size: 12px;
     font-family:@font-swatch7-font-family;
 }
 
 .widget.socialicons a {
+    background-color: lighten(@color-swatch2,20%);
+    -moz-border-radius: 30px;
+    -webkit-border-radius: 30px;
+    border-radius: 30px;
     text-decoration: none;
     text-indent: -9999px;
-    height: 32px;
-    width: 32px;
+    height: 40px;
+    width: 40px;
 }
 
 .widget.socialicons span a {
@@ -1066,27 +1062,27 @@ footer section.footer2 .widget.responsivecolumns .columns-two-right {
     background-repeat: no-repeat;
 }
 .widget.socialicons span.bk-socialicons-twitter a {
-    background-image: image('/hatch/images/socialicons-twitter.png')
+    background-image: image('/images/socialicons-twitter.png')
 }
 
 .widget.socialicons span.bk-socialicons-linkedin a {
-    background-image: image('/hatch/images/socialicons-linkedin.png');
+    background-image: image('/images/socialicons-linkedin.png');
 }
 
 .widget.socialicons span.bk-socialicons-facebook a {
-    background-image: image('/hatch/images/socialicons-facebook.png');
+    background-image: image('/images/socialicons-facebook.png');
 }
 
 .widget.socialicons span.bk-socialicons-rss a {
-    background-image: image('/hatch/images/socialicons-rssfeed.png');
+    background-image: image('/images/socialicons-rssfeed.png');
 }
 
 .widget.socialicons span.bk-socialicons-googleplus a {
-    background-image: image('/hatch/images/socialicons-googleplus.png');
+    background-image: image('/images/socialicons-googleplus.png');
 }
 
 .widget.socialicons span.bk-socialicons-youtube a {
-    background-image: image('/hatch/images/socialicons-youtube.png');
+    background-image: image('/images/socialicons-youtube.png');
 }
 
 
@@ -1113,8 +1109,9 @@ footer section.footer2 .widget.responsivecolumns .columns-two-right {
   }
 
   /* NAV */
-.widget.extendednavigation {
-    float: left !important;
+
+  .widget.extendednavigation {
+    width: 100%;
     padding: 0;
     margin-top: 26px;
   }
@@ -1134,27 +1131,30 @@ footer section.footer2 .widget.responsivecolumns .columns-two-right {
   .widget .extendednavigation li {
     display: table-cell !important;
     float: none!important;
-    padding: .2em 0em;
+    padding: 0.6em;
+    border: 1px solid lighten(@color-swatch2,60%);
     text-align: center;
   }
 
-  .widget.extendednavigation ul li a {
+  .widget.extendednavigation ul li a, .widget.extendednavigation ul li.folder .text {
     margin-left: 0;
   }
 
   .widget .extendednavigation li:last-child
    {
-    border-right: 0;
+    border-left: 0;
    }
 
    .widget .extendednavigation li:first-child
    {
-    border-left: 0;
+    border-right: 0;
    }
 
   .widget.extendednavigation li:hover > ul {
     width: auto;
-    margin-left: -1px;
+    border: 1px solid lighten(@color-swatch2,60%);
+    border: 1px solid lighten(@color-swatch2,60%);
+    margin-left: -10px;
     padding: 0;
     margin-top: 8px;
   }
@@ -1162,11 +1162,15 @@ footer section.footer2 .widget.responsivecolumns .columns-two-right {
   .widget.extendednavigation li:hover > ul li {
     display: block!important;
     border: 0!important;
-    padding: .2em 0;
+    padding: 0;
   }
 
   .widget.extendednavigation li:hover > ul li:first-child {
-    padding-top: 15px;
+    padding-top: 0;
+  }
+
+   .widget.extendednavigation ul li:hover > ul li.folder .text {
+    margin-left: 0;
   }
 
   /* OTHER */
@@ -1180,49 +1184,18 @@ footer section.footer2 .widget.responsivecolumns .columns-two-right {
   }
 
   /* FEATURE */
-  .widget.feature {
-    /*height: 350px;*/
-    height: auto;
-  }
-
 
   .widget.feature .bgimage {
     height: 350px;
   }
 
-  .widget.feature .content {
-    padding: 3.6em 0;
-    position: absolute;
-    bottom: 0;
-  }
-
-  .widget.feature .content .spare {
-    max-width: 690px;
-  }
-
-  .widget.feature button {
-    /*display: none;*/
-    /*margin: 1em auto;*/
-  }
-
   .widget.feature h2 {
-    font-size: 3em;
-    line-height: 40px;
+    font-size:(@font-swatch8-font-size * 0.8); /* 40px */
   }
 
   .widget.feature h3 {
-    font-size: 1.2em;
-    line-height: 30px;
+    font-size:(@font-swatch9-font-size * 0.7); /* 40px */
   }
-
-  .strap {
-    padding: 50px 0 20px;
-  }
-
-  .strap h4 {
-    font-size: 20px;
-  }
-
 
 }
 
@@ -1232,6 +1205,11 @@ footer section.footer2 .widget.responsivecolumns .columns-two-right {
 
 @media only screen and (max-width: 480px) {
 
+  /* COMPANY HEADER */
+  .widget.companyheader .company-name h1 {
+    font-size:(@font-swatch1-font-size * 0.6)
+  }
+
   /* NAV */
 
   .widget.extendednavigation {
@@ -1239,7 +1217,7 @@ footer section.footer2 .widget.responsivecolumns .columns-two-right {
   }
   .widget .extendednavigation {
     display: block;
-
+    width: 100%;
   }
 
   .widget .extendednavigation ul {
@@ -1247,42 +1225,47 @@ footer section.footer2 .widget.responsivecolumns .columns-two-right {
     width: 100%;
     float: left;
     margin: 0;
+    border: none;
   }
 
   .widget .extendednavigation li {
     display: block!important;
     width: 100%;
-    border-left: 0;
-    background-color: lighten(@color-swatch2,80%);
     padding: 0;
   }
 
   .widget .extendednavigation li:hover {
-    background-color: lighten(@color-swatch2,70%);
+    background-color: lighten(@color-swatch2,80%);
   }
 
   .widget.extendednavigation ul li.folder {
     padding: 0;
+    border-left:0;
+    border-right:0;
   }
 
   .widget .extendednavigation ul li a {
-    border-left: 0;
-    border-right: 0;
     padding: 1.4em 1em;
   }
 
   .widget.extendednavigation ul li.folder .text {
     padding: 1.4em 1em;
-    margin-top: 20px;
+    margin-left: 0;
+  }
+
+    .widget .extendednavigation ul li:first-child {
+    border-bottom: 0;
+    border-left:0;
   }
 
   .widget .extendednavigation ul li:last-child {
-    border: 0;
+    border-top: 0;
+    border-right: 0;
   }
 
   .widget.extendednavigation li:hover > ul {
     width: 100%;
-    margin-left: 0px;
+    margin-left: 0;
     margin-top: 0px;
   }
 
@@ -1322,39 +1305,29 @@ footer section.footer2 .widget.responsivecolumns .columns-two-right {
 
   /* FEATURE */
 
-  .widget.feature {
-    /*height: 210px;*/
-    height: auto;
-  }
+  .widget.feature .feature-bgimg {
+    height: 250px; /* should be in media query*/
+   }
 
-  .widget.feature .bgimage {
-    height: 210px;
-  }
-
-    .widget.feature .content .spare {
-    max-width: 300px;
+  .widget.feature .content {
+    height: 280px;
   }
 
   .widget.feature h2 {
-    font-size: 1.2em;
-    padding-bottom: 0;
+    padding: 10px;
+    font-size:(@font-swatch8-font-size * 0.5); /* 20px */
+    line-height:@font-swatch8-line-height; 
   }
-  .widget.feature h3
-   {
-    /*display: none;*/
+
+  .widget.feature h3 {
+    font-size:(@font-swatch9-font-size * 0.6); /* 40px */
   }
 
   .widget.feature button {
-    display: none;
+    font-size:0.8em;
+    padding:10px;
   }
 
-  .strap {
-    padding: 60px 0 30px;
-  }
-
-  .strap h4 {
-    font-size: 20px;
-  }
 
   /* CLICK TO CALL */
 
@@ -1406,18 +1379,6 @@ footer section.footer2 .widget.responsivecolumns .columns-two-right {
     width: 96%;
   }
 
-  .footer2 {
-    text-align: center;
-  }
-
-  .footer2 .columns-two-left {
-    margin: 0!important;
-  }
-
-  .footer2 p {
-    text-align: left!important;
-  }
-
 }
 
 @media only screen and (min-width: 1140px) {
@@ -1438,5 +1399,3 @@ footer section.footer2 .widget.responsivecolumns .columns-two-right {
 .clearfix {
   *zoom: 1;
 }
-
-
