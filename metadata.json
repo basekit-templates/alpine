@@ -1,7 +1,7 @@
 {
 	"name":"Alpine",
-	"thumbnail":"alpine.jpg",
-	"screenshot":"alpine.jpg",
+	"thumbnail":"alpine.png",
+	"screenshot":"alpine.png",
 	"pageTypes":["about"],
 	"defaultColorSwatch":"Earth 1",
 	"defaultFontSwatch":"Lato"
