@@ -1,4 +1,4 @@
-alpine
-======
+Alpine
+=====
 
-BaseKit's Alpine Co Template
+BaseKit's Alpine Template

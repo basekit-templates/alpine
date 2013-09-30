@@ -1,5 +1,10 @@
+/* SCALING FUNCTION */
+.scale-value ( @property, @value: 13, @scale : 1) {
+  @property:  (@value * @scale)px;
+}
+
 body {
-  background-color: lighten(@color-swatch1,10%);
+  background-color: lighten(@color-swatch1,3%);
   margin: 0;
   padding: 0;
 }
@@ -10,11 +15,10 @@ body {
 }
 
 a {
-  font-family:@font-swatch5-font-family;
+  font-family:@font-swatch2-font-family;
   font-size:@font-swatch5-font-size;
   font-weight:@font-swatch5-font-weight;
   color:@color-swatch3;
-  letter-spacing: @font-swatch4-letter-spacing;
   text-decoration: none;
 }
 
@@ -22,27 +26,27 @@ a:hover {
   text-decoration: underline;
 }
 
-h2, h3, h4, h5, p {
+h1, h2, h3, h4, h5, p {
   margin: 0;
   padding: 0 0 10px;
 }
 
 h1 {
   font-family:@font-swatch1-font-family;
-  font-size:@font-swatch1-font-size;
-  font-weight:@font-swatch1-font-weight;
+  font-weight: @font-swatch1-font-weight;
   color:@font-swatch1-color;
+  line-height:@font-swatch1-line-height;
   letter-spacing: @font-swatch1-letter-spacing;
-  margin: 0;
-  padding: 0;
+  font-size: @font-swatch1-font-size;
 }
+
 h2
 {
   font-family:@font-swatch2-font-family;
   font-size: @font-swatch2-font-size;
-  font-weight:@font-swatch2-font-weight;
+  font-weight: @font-swatch2-font-weight;
   line-height:@font-swatch2-line-height;
-  color:@font-swatch2-color;
+  color: @font-swatch2-color;
   letter-spacing: @font-swatch2-letter-spacing;
 }
 
@@ -50,9 +54,9 @@ h3
 {
   font-family:@font-swatch3-font-family;
   font-size:@font-swatch3-font-size;
-  font-weight:@font-swatch3-font-weight;
+  font-weight: @font-swatch3-font-weight;
+  color: @font-swatch3-color;
   line-height:@font-swatch3-line-height;
-  color:@font-swatch3-color;
   letter-spacing: @font-swatch3-letter-spacing;
 }
 
@@ -70,21 +74,22 @@ p
 {
   font-family:@font-swatch5-font-family;
   font-size:@font-swatch5-font-size;
-  font-weight:@font-swatch5-font-weight;
+  font-weight: @font-swatch5-font-weight;
   line-height:@font-swatch5-line-height;
   color:@font-swatch5-color;
-  letter-spacing: @font-swatch4-letter-spacing;
+  letter-spacing: @font-swatch5-letter-spacing;
 }
 
 blockquote {
-  border-left:6px solid lighten(@color-swatch2,10%);
+  background:@color-swatch2;
+  border-left:6px solid darken(@color-swatch2,10%);
   margin:0;
   padding: 14px 16px;
   quotes:"\201C""\201D""\2018""\2019";
 }
   blockquote:before {
   font-family: georgia;
-  color:darken(@color-swatch2,40%);
+  color:darken(@color-swatch2,20%);
   content:open-quote;
   font-size:4em;
   line-height:.1em;
@@ -101,47 +106,81 @@ blockquote {
   color:@font-swatch5-color;
 }
 
-/* Button CSS */
-/* 
-    Document   : button
-    Created on : 04-Jul-2012, 14:15:32
-    Author     : Dom
-    Description: Button modernwhite
-*/
 
+/* ===============================
+   CUSTOM CSS
+   =============================== */
 
-.widget.button button.btn {
-    width: 87.5%;
-    margin: 20px auto;
-    display: block;
+section.intro {
+  text-align: center;
+  padding: 70px 0;
 }
 
-.btnText {
+span.highlight {
+  color: @color-swatch3;
+  font-size: 34px;
+}
+
+span.dotted {
+  border-bottom: 1px dotted @color-swatch3;
+  padding-bottom: 6px;
+}
+
+.strap {
+  padding: 70px 0 50px;
+}
+
+.strap h4 {
+  font-size: 22px;
+  line-height: 52px;
+}
+
+section.main {
+  padding: 40px 0;
+}
+
+/*.widget.responsivecolumns {
+  margin: 3em 0em;
+}*/
+
+
+/* ===============================
+   BUTTON CSS
+   =============================== */
+
+
+.widget.button {
+    padding: 4px 0;
 }
 
 .widget.button button
 {
-    padding: 1em 1em;
-    -webkit-border-radius: 20px;
-       -moz-border-radius: 20px;
-            border-radius: 20px;
-    box-shadow: 0 0 0 2px rgba(0,0,0,0.2);
-    border: none;
+  padding: 12px 40px;
+  margin: 2.2em auto;
+  border: 0;
+  -webkit-border-radius: 10px;
+     -moz-border-radius: 10px;
+          border-radius: 10px;
 
-    font-family: @font-swatch7-font-family;
-    font-size: @font-swatch7-font-size;
-    font-weight:@font-swatch7-font-weight;
-    background-color: @font-swatch7-background-color;
-    color: @font-swatch7-color;
-    text-decoration: none;
-    letter-spacing: 2px;
+  font-family: @font-swatch2-font-family;
+  font-size: 14px;
+  font-weight:@font-swatch7-font-weight;
+  background-color: @color-swatch3;
+  color: @color-swatch1;
+  text-decoration: none;
+  letter-spacing: 1px;
+  text-shadow: 0 1px 0px rgba(0,0,0,0.3);
 }
 
 .widget.button button:hover 
 {
-    background-color: darken(@color-swatch3,5%);
-    cursor: pointer;
+  background-color: darken(@color-swatch3,5%);
+  cursor: pointer;
 }
+
+
+
+/* JUSTIFY */
 
 .widget.button button.btn.justifyleft
 {
@@ -197,7 +236,7 @@ blockquote {
 .widget.content span.expand
 {
     font-family: @font-swatch3-font-family;
-    background-color: @font-swatch7-background-color;
+    background-color: @color-swatch3;
     color: @font-swatch7-color;
     font-size: @font-swatch5-font-size;
     padding: 4px 8px;
@@ -327,8 +366,8 @@ blockquote {
 }
 
 hr.line {
-   background-color: @color-swatch2;
-   height: 3px;
+   background-color: darken(@color-swatch2,3%);
+   height: 1px;
    width: 100%;
    border: none;
 }
@@ -346,29 +385,34 @@ hr.line.align-right {
 }
 
 
-/* Click To Call CSS */
+/* ===============================
+   CLICK TO CALL
+   =============================== */
 
 .widget.clicktocall {
-    background-color: @font-swatch7-background-color;
-    padding: 16px 10px;
-    margin: 20px;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    border-radius: 4px;
-}
-
-.widget.clicktocall:hover {
-    background-color: darken(@color-swatch3,5%);
-    cursor: pointer;
+    padding: 10px 0;
 }
 
 .widget.clicktocall a {
-    font-family:@font-swatch7-font-family;
-    font-size: @font-swatch7-font-size;
-    color: @font-swatch7-color;
+  margin: 0;
+  background-image: image('/images/ic-desktop-call.png');
+  background-position: left center;
+  background-repeat: no-repeat;
+  padding-left: 28px;
+  font-family:@font-swatch4-font-family;
+  font-size:@font-swatch5-font-size;
+  font-weight: @font-swatch4-font-weight;
+  line-height: @font-swatch4-line-height;
+  color:@font-swatch4-color;
+}
+
+.widget.clicktocall a:hover {
+    background-image: image('/images/ic-desktop-call-hov.png');
+    background-position: left center;
+    background-repeat: no-repeat;
+    padding-left: 28px;
+    cursor: pointer;
     text-decoration: none;
-    text-align: center;
-    display: block;
 }
 
 .widget.clicktocall a.justifyleft
@@ -398,164 +442,172 @@ hr.line.align-right {
 .widget.clicktocall a.bold {
     font-weight: bold;
 }
-footer {
-  background-color: darken(@color-swatch4,10%);
-  min-height: 150px;
-  margin-top: 4em;
-  padding: 2em 0;
-  color: @color-swatch1;
+
+/* ===============================
+   REDIRECT WIDGET
+   =============================== */
+
+.widget.redirecttodesktop {
+    padding: 8px 0;
 }
-footer section article {
-    float: left;
-    width: 20%;
-    margin-right: 5%;
-    margin-bottom: 5%;
+
+.widget.redirecttodesktop a {
+    padding-right: 30px;
+    padding-top: 2px;
+    background-image: image('/images/desktop.png');
+    background-repeat: no-repeat;
+    background-position: right center;
+    font-size: 12px;
+    text-shadow: 0 1px 0 rgba(255,255,255,.5);
+    text-decoration: none;
+    cursor: pointer;
+    color: @font-swatch5-color;
+    font-family: @font-swatch5-font-family;
+
 }
-footer p {
-  padding: 6px 0;
+
+.widget.redirecttodesktop a:hover, .desktop a:active {
+    background-image: image('/images/desktop.png');
+    background-repeat: no-repeat;
+    background-position: right center;
+    cursor: pointer;
+    text-decoration: underline;
 }
-footer h3 {
-  color: @color-swatch1;
-  font-weight: 200;
-}
+
+
+/* ===============================
+   HEADER  
+   =============================== */
 
 header {
   padding: 20px 0;
+  background-color: lighten(@color-swatch7,3%);
+  border-bottom: 1px solid @color-swatch2;
 }
+
+.widget.companyheader .company-name h1 {
+  font-size:(@font-swatch1-font-size * 0.6); /* 21.6px  */
+  margin: 0;
+  padding: 0;
+}
+
 .widget.companyheader {
   float: left;
   overflow-x: auto;
   overflow-y: hidden;
 }
+
 .widget.companyheader .logo {
   display: block;
   float: left;
-  margin-top: 10px;
+  margin-right: 6px;
+  margin-top: 8px;
 }
+
 .widget.companyheader:before,
 .widget.companyheader:after {
   content: " ";
   display: table;
 }
+
 .widget.companyheader:after {
   clear: both;
 }
+
 .widget.companyheader {
   *zoom: 1;
 }
+
 .widget.companyheader .logo img {
   max-width: 100%;
   height: auto;
 }
+
 .widget.companyheader .logo-bottom {
   display: none;
 }
+
 .widget.companyheader .company-name {
   display: block;
   float: left;
-  padding: 1.5em 1.2em;
+  margin-top: 9px;
 }
 
+/* FOOTER */
 
-/* Navigation CSS */
-/*
-    Document   : navigation
-    Created on : December 12, 2012, 3:30:52 PM
-    Author     : Dom
-    Description:
-        Navigation modernwhite 
-*/
+footer {
+  padding: 4em 0;
+  background-color: lighten(@color-swatch4,5%);
+  min-height: 150px;
+  color: @color-swatch1;
+}
+
+footer h1, footer h2, footer h3, footer h4 {
+  color: @color-swatch1;
+  padding-bottom: 20px;
+}
+
+footer p {
+  color: lighten(@color-swatch5,10%);
+  line-height: 28px;
+  padding-bottom: 0;
+}
+
+footer span {
+  color: @color-swatch1;
+}
+
+/* ===============================
+   STANDARD NAVIGATION
+   =============================== */
 
 .widget.navigation {
-    margin: 0;
 }
 
-.widget.navigation .navigation {
-    width: 100%;
+.widget.navigation ul {
+  padding: 0;
+  margin: 20px 0 0;
 }
 
-.widget.navigation ul
-{
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    list-style: none outside none;
-    margin: 0;
-    overflow-x: hidden;
-    overflow-y: auto;
-    padding: 0;
-}
 .widget.navigation ul.align-center li
 {
-    text-align: center;
+  text-align: center;
 }
 
-.widget.navigation ul.align-left
+.widget.navigation ul.align-left li
 {
-    text-align: center;
+  text-align: left;
 }
 
 .widget.navigation ul.align-right li
 {
-    text-align: right; 
+  text-align: right;
 }
 
-.widget.navigation ul li 
-{
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    display: block;
-    list-style: none;
-    width: 100%;
-    border-top: 1px solid @color-swatch2;
-
-    /* fonts */
-    font-family:@font-swatch6-font-family;
-    font-size:@font-swatch5-font-size;
-    letter-spacing: @font-swatch6-letter-spacing;
-    color: @font-swatch6-color;
-
-}
-.widget.navigation ul li a
-{
-    display: block;
-    padding: 16px 20px;
-    color: lighten(@color-swatch4,20%);
-    font-weight: @font-swatch6-font-weight;
-    text-decoration: none;
+.widget.navigation ul li {
+  float: left;
+  display: block;
+  padding-right: 40px;
 }
 
-.navigation ul li:last-child
-{
-    border-right: none;
-    border-bottom: 1px solid @color-swatch2;
-
+.widget.navigation ul li a {
+  display: block;
+  font-family:@font-swatch6-font-family;
+  font-size:@font-swatch6-font-size;
+  font-weight: @font-swatch6-font-weight;
+  color: @font-swatch6-color;
+  line-height:@font-swatch6-line-height;
+  letter-spacing: @font-swatch6-letter-spacing;
 }
 
-.navigation.nm-3-tabs ul li:last-child, .navigation.nm-4-tabs ul li:last-child
-{
-    border-bottom: none;
-    border-top: none;
+.widget.navigation ul li a:hover {
+  text-decoration: none;
+  color: @color-swatch3;
 }
 
-.widget.navigation ul li:hover
-{
-    background-color: @color-swatch2;
-    background-image: none;
-    cursor: pointer;
-    border-top: 1px solid darken(@color-swatch1,10%);
-}
-
-.widget.navigation ul li:hover a
-{
-}
-
-.widget.navigation.nm-buttons ul li {
-    border: 1px solid #eee;
-}
-
-/* EXTENDED NAV */
+/* ===============================
+   EXTENDED NAVIGATION
+   =============================== */
 
 .widget.extendednavigation {
   float: right;
@@ -564,8 +616,8 @@ header {
 
 .widget.extendednavigation ul {
   float: left;
-  padding: 30px 0;
-  margin: 0;
+  padding: 0;
+  margin: 4px 0 0;
 }
 
 .widget.extendednavigation ul.align-center li
@@ -586,127 +638,138 @@ header {
 .widget.extendednavigation ul li {
   float: left;
   display: block;
-  padding: 8px 1.8em;
-  font-family: @font-swatch6-font-family;
-  font-size: @font-swatch5-font-size;
-  color: @color-swatch4;
-  text-decoration: none;
 }
 
 .widget.extendednavigation ul li:hover {
   color: @color-swatch3;
 }
 
-.widget.extendednavigation ul li a {
+.widget.extendednavigation ul li a, .widget.extendednavigation ul li.folder .text {
   display: block;
-  font-family: @font-swatch6-font-family;
-  color: darken(@color-swatch4,20%);
-  text-transform: uppercase;
+  padding: 6px 14px;
+  margin-left: 30px;
+  font-family:@font-swatch6-font-family;
+  font-size:@font-swatch6-font-size;
+  font-weight: @font-swatch6-font-weight;
+  color: @font-swatch6-color;
+  line-height:@font-swatch6-line-height;
+  letter-spacing: @font-swatch6-letter-spacing;
 }
+
 .widget.extendednavigation ul li a:hover {
   text-decoration: none;
 }
 
-.widget.extendednavigation ul li.folder {
-  display: block;
-  padding: 8px 1.8em;
-  font-family: @font-swatch6-font-family;
-  color: darken(@color-swatch4,20%);
-  text-transform: uppercase;
-  background-image: image('/23164e915649f1b3a02f8dc9b56d539a/images/arrow-down.png');
-  background-position: right center;
-  background-repeat: no-repeat;
-  height: 100%;
-  cursor: pointer;
-}
 
 .widget.extendednavigation li a:hover {
   color: @color-swatch3;
+    background-color: lighten(@color-swatch1,20%);
 }
 
 .widget.extendednavigation li > ul {
   display: none;
 }
+
 .widget.extendednavigation li:hover > ul {
   display: block;
-  width: 200px;
+  width: 186px;
   position: absolute;
-  margin-left: -1.8em;
+  background-color: lighten(@color-swatch1,20%);
+  border: 1px solid @color-swatch2;
   z-index: 500;
-  background-color: lighten(@color-swatch1,40%);
-  padding-top: 32px;
-  padding-bottom: 0px;
-  border-top: none;
+  padding: 0;
+  margin-left: 1.1em;
+  margin-top: 0;
 }
+
 .widget.extendednavigation li:hover > ul > li {
   display: block;
-  width: 150px;
+  width: 100%;
   text-align: left;
-    border-bottom: 1px solid lighten(@color-swatch3,20%);
 }
 
 .widget.extendednavigation li:hover > ul > li > a {
   display: block;
   background-image: none;
-  color: lighten(@color-swatch5,10%);
+  color: @color-swatch5;
+  padding: 14px;
+  margin-left: 0;
+
 }
+
+.widget.extendednavigation li:hover > ul > li > a .text {
+  margin-left: 0;
+}
+
 .widget.extendednavigation li:hover > ul > li > a:hover {
   color: @color-swatch3;
+  background-color: lighten(@color-swatch2,70%);
 }
 
+/* ===============================
+   FEATURE
+   =============================== */
 
+  .widget.feature .feature-bgimg {
+    height: 400px;
+   }
 
-.widget.feature {
-  margin-bottom: 2em;
-}
+  .widget.feature .content {
+    height: 400px;
+    text-align: center;
+  }
 
-.widget.feature .content {
-  padding: 5em 0;
-  margin: 0 auto;
-  width: 90%;
-  max-width: 960px;
-}
-
-.widget.feature {
-    width: 100%;
-}
 
 .widget.feature h2 {
-  color: @color-swatch1;
-  font-size: 3.1em;
-  text-align: center;
+  font-family:@font-swatch8-font-family;
+  font-size:@font-swatch8-font-size;
+  font-weight: @font-swatch8-font-weight;
+  line-height:@font-swatch8-line-height;
+  color: @font-swatch8-color;
+  letter-spacing: @font-swatch8-letter-spacing;
 }
+
+/* FEATURE STRAPLINE */
+
 .widget.feature h3 {
-  color: @color-swatch1;
-  letter-spacing: 0;
-  font-size: 1.22em;
-  text-align: center;
+  font-family:@font-swatch9-font-family;
+  font-size:(@font-swatch9-font-size * 0.8); /* 35px  */
+  font-weight: @font-swatch9-font-weight;
+  line-height:@font-swatch9-line-height;
+  color: @font-swatch9-color;
+  letter-spacing: 1px;
+  /*letter-spacing: @font-swatch9-letter-spacing;*/
 }
+
+/* FEATURE BUTTON */
 
 .widget.feature button
 {
-  display: block;
-  padding: 1.2em 2em;
-  margin: 2em auto 1em;
-  -webkit-border-radius: 40px;
-     -moz-border-radius: 40px;
-          border-radius: 40px;
-  box-shadow: 0 0 0 0px rgba(0,0,0,0.2);
-  border: none;
+  margin: 1em 0;
+  padding: 12px 18px;
+  border: 0;
+  -webkit-border-radius: 2px;
+     -moz-border-radius: 2px;
+          border-radius: 2px;
+  box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2);
 
-  font-family: @font-swatch7-font-family;
-  font-size: @font-swatch7-font-size;
+  font-family: @font-swatch2-font-family;
+  font-size: 1em;
   font-weight:@font-swatch7-font-weight;
-  background-color: @font-swatch7-background-color;
-  color: @font-swatch7-color;
+  background-color: @color-swatch3;
+  color: @color-swatch1;
   text-decoration: none;
-  letter-spacing: 2px;
+  text-shadow: 0 1px 0px rgba(0,0,0,0.3);
 }
 
 .widget.feature button:hover 
 {
-    background-color: darken(@color-swatch3,5%);
-    cursor: pointer;
+  background-color: darken(@color-swatch2,5%);
+  cursor: pointer;
+  -webkit-transition: background-color 0.15s ease-in-out;
+  -moz-transition: background-color 0.15s ease-in-out;
+  -o-transition: background-color 0.15s ease-in-out;
+  transition: background-color 0.15s ease-in-out;
 }
 
 .widget.feature button.btn.justifyleft
@@ -745,6 +808,31 @@ header {
     margin-right: 5px;
 }
 
+/* ===============================
+   FEATURE LAYOUTS
+   =============================== */
+
+/* LEFT ALIGN */
+
+.widget.feature.align-left .content {
+  width: 100%;
+  text-align: left;
+}
+
+/* CENTER ALIGN */
+
+.widget.feature.align-center .content {
+  width: 100%;
+  text-align: center;
+}
+
+/* RIGHT ALIGN */
+
+.widget.feature.align-right .content {
+  width: 100%;
+  text-align: right;
+}
+
 /* Twitter CSS */
 /* 
     Document   : twitter
@@ -768,7 +856,7 @@ header {
 }
 
 .widget.twitter ul {
-    padding: 20px;
+    padding: 20px 0;
     margin: 0;
 }
 
@@ -801,17 +889,17 @@ header {
 }
 
 
-/* Form CSS */
-/* 
-    Document   : Form
-    Created on : 17-Dec-2012, 14:15:32
-    Author     : Dom
-    Description: Form modernwhite
-*/
+/* ===============================
+   CONTACT FORM
+   =============================== */
 
 .widget.contactform form {
-    padding: 20px;
+    display: block;
+    padding: 0;
     margin-bottom: 20px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
 }
 
 .widget.contactform fieldset {
@@ -827,22 +915,17 @@ header {
     font-weight:@font-swatch4-font-weight;
     line-height:@font-swatch4-line-height;
     color:@font-swatch4-color;
-    letter-spacing: @font-swatch5-letter-spacing;
+    letter-spacing: @font-swatch4-letter-spacing;
 }
 
 .widget.contactform fieldset input {
     height: 40px;
     width: 100%;
-    border: 1px solid lighten(@color-swatch4,60%);
+    border: 1px solid lighten(@color-swatch2,50%);
+    border-radius: 10px;
     font-family: @font-swatch5-font-family;
     font-size: @font-swatch5-font-size;
     color: @font-swatch5-color;
-    background-color: lighten(@color-swatch2,80%);
-    background-image: image('/23164e915649f1b3a02f8dc9b56d539a/images/form-bg.png');
-    background-repeat: repeat;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    border-radius: 4px;
     text-indent: 8px;
     margin-top: 6px;
     margin-bottom: 30px;
@@ -851,16 +934,11 @@ header {
 .widget.contactform fieldset textarea {
     height: 100px;
     width: 100%;
-    border: 1px solid lighten(@color-swatch4,60%);
+    border: 1px solid lighten(@color-swatch2,50%);
+    border-radius: 10px;
     font-family: @font-swatch5-font-family;
     font-size: @font-swatch5-font-size;
     color: @font-swatch5-color;
-    background-color: lighten(@color-swatch2,80%);
-    background-image: image('/23164e915649f1b3a02f8dc9b56d539a/images/form-bg.png');
-    background-repeat: repeat;
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
-    border-radius: 2px;
     text-indent: 8px;
     padding-top: 14px;
     margin-top: 6px;
@@ -869,21 +947,27 @@ header {
 }
 
 .widget.contactform fieldset button.btn {
-    width: auto;
-    font-family:@font-swatch7-font-family;
-    font-size: @font-swatch7-font-size;
-    color: @font-swatch7-color;
-    background-color: @font-swatch7-background-color;
-    padding: 8px 10px;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    border-radius: 4px;
-    border: none;
-}
+    padding: 4px 8px;
+    margin: 0;
+    border: 0;
+    -webkit-border-radius: 10px;
+       -moz-border-radius: 10px;
+            border-radius: 10px;
 
+
+    font-family: @font-swatch2-font-family;
+    font-size: 12px;
+    font-weight:@font-swatch7-font-weight;
+    background-color: @color-swatch3;
+    color: @color-swatch1;
+    text-decoration: none;
+    letter-spacing: 1px;
+    text-shadow: 0 1px 0px rgba(0,0,0,0.3);
+}
+  
 .widget.contactform fieldset button.btn:hover {
-    cursor: pointer;
-    background-color: darken(@color-swatch3,5%);
+  background-color: darken(@color-swatch3,5%);
+  cursor: pointer;
 }
 
 .widget.contactform fieldset button.btn.justifyleft
@@ -914,26 +998,28 @@ header {
     font-weight: bold;
 }
 
-/* TWEET THIS */
+
+/* ===============================
+   TWEET THIS
+   =============================== */
 
 .widget.tweet {
-   padding: 20px 0; 
-   text-align: center;
+   padding: 14px 0; 
 }
 
 .widget.tweet a {
-    background-color: lighten(@color-swatch1,20%);
-    color: @font-swatch5-color;
+    background-color: lighten(@color-swatch1,5%);
+    color: darken(@font-swatch5-color,20%);
     border: darken(@color-swatch1,10%) solid 1px;
-    padding: 12px 10px 12px 40px;
-    background-image: image('/23164e915649f1b3a02f8dc9b56d539a/images/twitter.png');
+    padding: 12px 20px 12px 50px;
+    background-image: image('/images/twitter.png');
     background-repeat: no-repeat;
-    background-position: 10px;
-    -moz-border-radius: 6px;
-    -webkit-border-radius: 6px;
-    border-radius: 3px;
-    font-family: Helvetica, arial;
-    font-size: 13px;
+    background-position: 15px;
+    -moz-border-radius: 30px;
+    -webkit-border-radius: 30px;
+    border-radius: 30px;
+    font-family: @font-swatch7-font-family;
+    font-size: 12px;
     font-weight: bold;
     text-shadow: 0 1px 0 rgba(255,255,255,.5);
     text-decoration: none;
@@ -941,33 +1027,33 @@ header {
 }
 
 .widget.tweet a:hover, .tweet a:active {
-    background-color: darken(@color-swatch1,5%);
+    background-color: lighten(@color-swatch4,60%);
     border: darken(@color-swatch1,15%) solid 1px;
-    background-image: image('/23164e915649f1b3a02f8dc9b56d539a/images/twitter.png');
+    background-image: image('/images/twitter.png');
     background-repeat: no-repeat;
-    background-position: 10px;
+    background-position: 15px;
     cursor: pointer;
 }
 
-.widget.tweet a:active {
-    box-shadow: inset 0 2px 3px rgba(0,0,0,0.1);
-}
 
 
 /* SOCIAL BAR */
 
 .widget.socialicons {
     padding: 10px 0;
-    text-align: center;
     font-size: 12px;
     font-family:@font-swatch7-font-family;
 }
 
 .widget.socialicons a {
+    background-color: lighten(@color-swatch2,20%);
+    -moz-border-radius: 30px;
+    -webkit-border-radius: 30px;
+    border-radius: 30px;
     text-decoration: none;
     text-indent: -9999px;
-    height: 32px;
-    width: 32px;
+    height: 40px;
+    width: 40px;
 }
 
 .widget.socialicons span a {
@@ -976,117 +1062,29 @@ header {
     background-repeat: no-repeat;
 }
 .widget.socialicons span.bk-socialicons-twitter a {
-    background-image: image('/23164e915649f1b3a02f8dc9b56d539a/images/socialicons-twitter.png')
+    background-image: image('/images/socialicons-twitter.png')
 }
 
 .widget.socialicons span.bk-socialicons-linkedin a {
-    background-image: image('/23164e915649f1b3a02f8dc9b56d539a/images/socialicons-linkedin.png');
+    background-image: image('/images/socialicons-linkedin.png');
 }
 
 .widget.socialicons span.bk-socialicons-facebook a {
-    background-image: image('/23164e915649f1b3a02f8dc9b56d539a/images/socialicons-facebook.png');
+    background-image: image('/images/socialicons-facebook.png');
 }
 
 .widget.socialicons span.bk-socialicons-rss a {
-    background-image: image('/23164e915649f1b3a02f8dc9b56d539a/images/socialicons-rssfeed.png');
+    background-image: image('/images/socialicons-rssfeed.png');
 }
 
 .widget.socialicons span.bk-socialicons-googleplus a {
-    background-image: image('/23164e915649f1b3a02f8dc9b56d539a/images/socialicons-googleplus.png');
+    background-image: image('/images/socialicons-googleplus.png');
 }
 
 .widget.socialicons span.bk-socialicons-youtube a {
-    background-image: image('/23164e915649f1b3a02f8dc9b56d539a/images/socialicons-youtube.png');
+    background-image: image('/images/socialicons-youtube.png');
 }
 
-/* SLIDESHOW */
-
-.slideshow-widget .btn-prev, .slideshow-widget .btn-next
-{
-  display: none;
-  position: absolute;
-  width: 14%;
-  height: 14%; 
-  font-size: 0;
-  z-index: 11;
-  text-indent: -99999px;  
-}
-
-.slideshow-widget .btn-prev
-{
-  left: 10px;
-  background: image('/23164e915649f1b3a02f8dc9b56d539a/images/slideshow-arrow-left.png') no-repeat center left;
-  background-size: contain;
-}
-
-.slideshow-widget .btn-next
-{
-  right: 10px;
-  background: image('/23164e915649f1b3a02f8dc9b56d539a/slideshow-arrow-right.png') no-repeat center right; 
-    background-size: contain;   
-}
-
-.slideshow-widget:hover .btn-prev, .slideshow-widget:hover .btn-next
-{
-  top: 43%;
-  display: block;
-  cursor: pointer;
-}
-
-.slideshow-widget-controls
-{
-  margin-top: 10px;
-  text-align: center;
-}
-
-.slideshow-empty {
-    padding: 10px;
-}
-
-.slideshow-widget .btn-play
-{
-  display: none;
-  position: absolute;
-  cursor: pointer;
-  z-index: 10;
-  background: image('/23164e915649f1b3a02f8dc9b56d539a/images/slideshow-play.png') center no-repeat;
-  background-size: 100%;
-  width: 14%;
-  height: 14%;
-  top: 43%;
-  left: 43%;
-}
-
-.slideshow-widget:hover .btn-play
-{
-  display:block;
-}
-
-.slideshow-widget:hover .btn-play.pause
-{
-  background: image('/23164e915649f1b3a02f8dc9b56d539a/images/slideshow-pause.png') center no-repeat;
-  background-size: 100%;  
-}
-
-.slideshow-widget-controls .dot
-{
-  width: 14px;
-  height: 14px;
-  line-height: 14px;
-  display: inline-block;
-  background: image('/23164e915649f1b3a02f8dc9b56d539a/images/slideshow-dot-not-selected.png') center no-repeat;
-}
-
-.slideshow-widget-controls .dot.selected
-{
-  background: image('/23164e915649f1b3a02f8dc9b56d539a/images/slideshow-dot-selected.png') center no-repeat;
-}
-
-.slideshow-widget .btn-prev.disabled, .slideshow-widget .btn-next.disabled, .slideshow-widget .btn-play.disabled
-{
-  opacity:0.4;
-  cursor: default;
-}
 
 
 /* ===============================
@@ -1094,33 +1092,111 @@ header {
    =============================== */
 
 @media only screen and (max-width: 768px) {
+
   header {
-    padding: 20px 0 10px;
+    padding: 30px 0 22px;
+    border-bottom: 0;
   }
-  .widget.feature .content {
-    padding: 3em 0;
-  }
-  .widget.extendednavigation {
-    float: left;
+
+  .widget.companyheader {
     width: 100%;
-    padding-top: 1em;
+    display: block;
+    margin: 0 auto;
   }
-  .widget.extendednavigation ul li:first-child {
-    padding-left: 0;
+
+  .widget.companyheader .company-name {
+    text-align: center;
   }
-    .widget.extendednavigation ul li:hover ul {
-    margin-left: -1em;
-    width: 180px;
+
+  /* NAV */
+
+  .widget.extendednavigation {
+    width: 100%;
+    padding: 0;
+    margin-top: 26px;
   }
-    .widget.extendednavigation ul li:hover ul li {
-    padding: 1em;
+  .widget .extendednavigation {
+    display: table;
+    *display: block;
+    *float: left;
+    width: 100%;
   }
+
+  .widget .extendednavigation ul {
+    display: table-row;
+    width: 100%;
+    float: none!important;
+  }
+
+  .widget .extendednavigation li {
+    display: table-cell !important;
+    float: none!important;
+    padding: 0.6em;
+    border: 1px solid lighten(@color-swatch2,60%);
+    text-align: center;
+  }
+
+  .widget.extendednavigation ul li a, .widget.extendednavigation ul li.folder .text {
+    margin-left: 0;
+  }
+
+  .widget .extendednavigation li:last-child
+   {
+    border-left: 0;
+   }
+
+   .widget .extendednavigation li:first-child
+   {
+    border-right: 0;
+   }
+
+  .widget.extendednavigation li:hover > ul {
+    width: auto;
+    border: 1px solid lighten(@color-swatch2,60%);
+    border: 1px solid lighten(@color-swatch2,60%);
+    margin-left: -10px;
+    padding: 0;
+    margin-top: 8px;
+  }
+
+  .widget.extendednavigation li:hover > ul li {
+    display: block!important;
+    border: 0!important;
+    padding: 0;
+  }
+
+  .widget.extendednavigation li:hover > ul li:first-child {
+    padding-top: 0;
+  }
+
+   .widget.extendednavigation ul li:hover > ul li.folder .text {
+    margin-left: 0;
+  }
+
+  /* OTHER */
+
+  section.intro, section.main {
+    padding: 50px 0;
+  }
+
+  section.intro {
+    display: none;
+  }
+
+  /* FEATURE */
+
+  .widget.feature .bgimage {
+    height: 350px;
+  }
+
   .widget.feature h2 {
-    font-size: 2.5em;
+    font-size:(@font-swatch8-font-size * 0.8); /* 40px */
   }
+
   .widget.feature h3 {
-    font-size: 1.1em;
+    font-size:(@font-swatch9-font-size * 0.7); /* 40px */
   }
+
 }
 
 /* ===============================
@@ -1128,54 +1204,86 @@ header {
    =============================== */
 
 @media only screen and (max-width: 480px) {
-  header {
-    padding: 20px 0 10px;
+
+  /* COMPANY HEADER */
+  .widget.companyheader .company-name h1 {
+    font-size:(@font-swatch1-font-size * 0.6)
   }
-  .widget.companyheader {
+
+  /* NAV */
+
+  .widget.extendednavigation {
     width: 100%;
   }
-  .widget.feature .content {
-    padding: 2em 0 3em 0;
-  }
-  .widget.extendednavigation ul {
+  .widget .extendednavigation {
+    display: block;
     width: 100%;
   }
-  .widget.extendednavigation ul li {
+
+  .widget .extendednavigation ul {
+    display: block;
     width: 100%;
-    padding: 1.2em 0 !important;
-    text-align: center;
+    float: left;
+    margin: 0;
+    border: none;
+  }
+
+  .widget .extendednavigation li {
+    display: block!important;
+    width: 100%;
+    padding: 0;
+  }
+
+  .widget .extendednavigation li:hover {
     background-color: lighten(@color-swatch2,80%);
-    margin-bottom: .7em;
-  }
-  .widget.extendednavigation ul li a {
-    padding: 0 20px;
-  }
-  .widget.extendednavigation li:hover > ul {
-    border-top: 1px solid @color-swatch1;
-    width: 100% !important;
-    padding-top: 0;
-    padding-bottom: 0;
-    margin-left: 0em !important;
-    margin-top: 17px;
-  }
-  .widget.extendednavigation li:hover > ul li {
-    width: 100%;
-    text-align: center;
-    margin-bottom: 1px;
   }
 
-  .widget.extendednavigation li:hover > ul li a {
-    color: lighten(@color-swatch2,30%);
+  .widget.extendednavigation ul li.folder {
+    padding: 0;
+    border-left:0;
+    border-right:0;
   }
 
-  .widget.extendednavigation li:hover > ul li:last-child {
+  .widget .extendednavigation ul li a {
+    padding: 1.4em 1em;
+  }
+
+  .widget.extendednavigation ul li.folder .text {
+    padding: 1.4em 1em;
+    margin-left: 0;
+  }
+
+    .widget .extendednavigation ul li:first-child {
     border-bottom: 0;
+    border-left:0;
   }
 
-  .widget.extendednavigation li:hover > ul li .text {
-    padding-left: 20px;
+  .widget .extendednavigation ul li:last-child {
+    border-top: 0;
+    border-right: 0;
   }
 
+  .widget.extendednavigation li:hover > ul {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 0px;
+  }
+
+  .widget.extendednavigation li:hover > ul li {
+    display: block!important;
+    margin-bottom: 0;
+    text-align: center;
+    padding: 0;
+  }
+
+  .widget.extendednavigation li:hover > ul > li > a {
+    padding: 0;
+  }
+
+  .widget.extendednavigation ul li:hover > ul li:first-child {
+    padding-top: 0;
+  }
+  
   /* UL ALIGN RIGHT */
   .widget.extendednavigation ul.align-right li:hover ul li {
     text-align: right;
@@ -1185,29 +1293,92 @@ header {
     background-position: 12px center;
   }
 
+  /* UL ALIGN CENTER */
+  .widget.extendednavigation ul.align-left li:hover ul li {
+    text-align: center;
+  }
+
   /* UL ALIGN LEFT */
   .widget.extendednavigation ul.align-left li:hover ul li {
     text-align: left;
   }
 
+  /* FEATURE */
+
+  .widget.feature .feature-bgimg {
+    height: 250px; /* should be in media query*/
+   }
+
+  .widget.feature .content {
+    height: 280px;
+  }
+
   .widget.feature h2 {
-    font-size: 2.2em;
+    padding: 10px;
+    font-size:(@font-swatch8-font-size * 0.5); /* 20px */
+    line-height:@font-swatch8-line-height; 
   }
+
   .widget.feature h3 {
-    font-size: 1.03em;
-    line-height: 1.5em;
+    font-size:(@font-swatch9-font-size * 0.6); /* 40px */
   }
-  section.feature header.feature-text {
-    padding: 3em 0;
+
+  .widget.feature button {
+    font-size:0.8em;
+    padding:10px;
   }
+
+
+  /* CLICK TO CALL */
+
+  .widget.clicktocall {
+    padding: 20px 0;
+  }
+
+  .widget.clicktocall a {
+    background-image: image('/images/ic-desktop-call-mob.png');
+    background-color: @color-swatch3;
+    background-position: 10px;
+    padding: 10px 10px 10px 38px;
+    margin: 2.2em auto;
+    border: 0;
+    -webkit-border-radius: 10px;
+       -moz-border-radius: 10px;
+            border-radius: 10px;
+
+
+    font-family: @font-swatch2-font-family;
+    font-size: 12px;
+    font-weight:@font-swatch7-font-weight;
+    background-color: @color-swatch3;
+    color: @color-swatch1;
+    text-decoration: none;
+    letter-spacing: 1px;
+    text-shadow: 0 1px 0px rgba(0,0,0,0.3);
+  }
+
+  .widget.clicktocall a:hover {
+    background-image: image('/images/ic-desktop-call-mob.png');
+    background-color: darken(@color-swatch3,2%);
+    background-position: 10px;
+    color: @color-swatch1;
+    padding: 10px 10px 10px 38px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  /* GALLERY */
+
   .widget.gallery p
   {
     padding: 10px;
   }
+
   .widget.gallery ul.gallery-widget li
   {
     width: 96%;
   }
+
 }
 
 @media only screen and (min-width: 1140px) {
