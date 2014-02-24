@@ -12,7 +12,7 @@
             "color4":"#5c5757",
             "color5":"#aa9c8d",
             "color6":"#545454",
-            "color7":"#f8f5eb"
+            "color7":"#393939"
         },
         "Swatch 2": {
             "color1":"#f8f5ec",
@@ -123,6 +123,14 @@
             "letter-spacing": "inherit"
         },
         "font9": {
+            "font-family": "Lato",
+            "font-size": "24px",
+            "font-weight": "500",
+            "line-height": "36px",
+            "color": "@color-swatch1",
+            "letter-spacing": "inherit"
+        },
+        "font10": {
             "font-family": "Lato",
             "font-size": "24px",
             "font-weight": "500",
