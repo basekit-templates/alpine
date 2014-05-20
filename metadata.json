@@ -2,6 +2,7 @@
 	"name":"Alpine",
 	"thumbnail":"alpine.png",
 	"screenshot":"alpine.png",
+	"templateType":"standard",
 	"pageTypes":["home"],
     "colorSwatches":
     {
